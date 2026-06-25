@@ -1,0 +1,172 @@
+/*
+ * Altersverifikation – Gate Overlay Styles
+ * Overlay ist standardmäßig sichtbar (Fail-Safe); JS blendet ihn aus wenn Cookie vorhanden.
+ */
+
+/* CSS-Variablen werden per Inline-Style vom PHP-Renderer gesetzt. */
+#avf-overlay {
+	display: none; /* Wird durch Inline-Critical-CSS auf flex gesetzt. */
+	position: fixed;
+	inset: 0;
+	z-index: 999999;
+	background-color: var( --avf-overlay-color, #0d0d0f );
+	align-items: center;
+	justify-content: center;
+	padding: 1rem;
+	box-sizing: border-box;
+}
+
+#avf-overlay.avf-hidden {
+	display: none !important;
+}
+
+.avf-card {
+	background: #fff;
+	border-radius: 8px;
+	padding: 2rem 2.5rem;
+	max-width: 480px;
+	width: 100%;
+	text-align: center;
+	box-shadow: 0 8px 40px rgba( 0, 0, 0, 0.5 );
+}
+
+.avf-logo {
+	max-width: 160px;
+	max-height: 80px;
+	margin-bottom: 1rem;
+	object-fit: contain;
+}
+
+.avf-heading {
+	margin: 0 0 0.75rem;
+	font-size: 1.5rem;
+	color: #111;
+}
+
+.avf-message {
+	color: #444;
+	margin-bottom: 1.5rem;
+	font-size: 0.95rem;
+	line-height: 1.6;
+}
+
+/* Geburtsdatumsfelder */
+.avf-dob-wrap {
+	margin-bottom: 1.25rem;
+	text-align: left;
+}
+
+.avf-dob-wrap label {
+	display: block;
+	font-weight: 600;
+	margin-bottom: 0.4rem;
+	color: #333;
+}
+
+.avf-dob-fields {
+	display: flex;
+	gap: 0.5rem;
+}
+
+.avf-dob-fields input[type="number"] {
+	width: 72px;
+	padding: 0.5rem;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	font-size: 1rem;
+	text-align: center;
+	-moz-appearance: textfield;
+}
+
+.avf-dob-fields input[type="number"]::-webkit-inner-spin-button,
+.avf-dob-fields input[type="number"]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+}
+
+.avf-error {
+	color: #c00;
+	font-size: 0.875rem;
+	margin-top: 0.4rem;
+}
+
+/* Schaltflächen */
+.avf-actions {
+	display: flex;
+	flex-direction: column;
+	gap: 0.6rem;
+	margin-bottom: 1rem;
+}
+
+.avf-btn {
+	display: block;
+	width: 100%;
+	padding: 0.75rem 1rem;
+	font-size: 1rem;
+	font-weight: 600;
+	border: none;
+	border-radius: 6px;
+	cursor: pointer;
+	transition: opacity 0.15s;
+}
+
+.avf-btn:hover {
+	opacity: 0.85;
+}
+
+.avf-btn:focus-visible {
+	outline: 3px solid var( --avf-accent-color, #f0834e );
+	outline-offset: 2px;
+}
+
+.avf-btn-confirm {
+	background-color: var( --avf-accent-color, #f0834e );
+	color: #fff;
+}
+
+.avf-btn-decline {
+	background: transparent;
+	border: 2px solid #ccc;
+	color: #555;
+}
+
+/* Ablehnungs-Meldung */
+.avf-decline-message {
+	margin-top: 0.75rem;
+	padding: 0.75rem;
+	background: #fef2f2;
+	border: 1px solid #fca5a5;
+	border-radius: 4px;
+	color: #991b1b;
+	font-size: 0.875rem;
+}
+
+/* Credit */
+.avf-credit {
+	margin-top: 1.25rem;
+	font-size: 0.7rem;
+	color: #aaa;
+}
+
+.avf-credit a {
+	color: #aaa;
+	text-decoration: none;
+}
+
+.avf-credit a:hover {
+	text-decoration: underline;
+}
+
+/* Responsiv */
+@media ( max-width: 480px ) {
+	.avf-card {
+		padding: 1.5rem 1.25rem;
+	}
+
+	.avf-heading {
+		font-size: 1.25rem;
+	}
+
+	.avf-dob-fields input[type="number"] {
+		width: 60px;
+	}
+}
